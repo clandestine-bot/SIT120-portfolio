@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title> task 3 week 3 </title>
+  </head>
+
+  <body>
+    <p> the number of milliseconds since January 1, 1970:</p>
+    <p id="getMs"></p>
+
+    <p>Get full year </p>
+    <p id="getFullYear"></p>
+
+    <p> Get full month </p>
+    <p id="getMonth"></p>
+
+    <p> Get full date</p>
+    <p id="getDate"></p>
+
+    <script type="text/javascript">
+      var d = new Date();
+      document.getElementById("getMs").innerHTML = d.getTime(); // get the time (milliseconds since January 1, 1970)
+      document.getElementById("getFullYear").innerHTML = d.getFullYear(); // returns the year of a date as a four digit number
+      document.getElementById("getMonth").innerHTML = d.getMonth(); // get the Month as one or two digit number
+      document.getElementById("getDate").innerHTML = d.getDate(); // get the Date as one or two digit number
+
+    </script>
+  </body>
+
+</html>
