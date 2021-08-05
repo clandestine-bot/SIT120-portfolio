@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title> task 2 week 3</title>
+  </head>
+
+  <body>
+
+    <p>document.getElementById(" ").innerHTML is to display to the screen: </p>
+    <!-- declaration-->
+    <p id="task21"></p>
+    <p id="task22"></p>
+    <p id="task23"></p>
+
+    <p id="a"></p>
+    <p id="b"></p>
+    <script type="text/javascript">
+      /*     part 1*/
+      var x = 100; // variable x is declared with 100 as its value
+      document.getElementById("task21").innerHTML = x.toString(); // Returns 100 from variable 100
+      document.getElementById("task22").innerHTML = (100).toString(); // Returns 100 from literal 100
+      document.getElementById("task23").innerHTML = (70 + 30).toString(); // Returns 100 from 70 + 30
+
+      alert("to display as alert: ");
+      alert(x.toString());
+      alert((100).toString());
+      alert("70 + 30 = " + (70 + 30).toString());
+
+      /*       part 2*/
+      var first = ["M", "O", "N"]; // variable "first" is declared with a set of array consisting M O N 
+      document.getElementById("a").innerHTML = first.join(" "); //display to the screen
+
+      var middle = ["I", "C", "A"];
+      var monica = first.concat(middle); // joins the first and middle
+
+      document.getElementById("b").innerHTML = monica; // display the joined arrays
+
+    </script>
+
+  </body>
+
+</html>
