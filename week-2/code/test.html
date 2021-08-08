@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- import icon from material.io -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Internal CSS; for all body contents */
+      body {
+        margin: 0;
+        font-family: 'Space Mono', monospace;
+        background-color: black;
+      }
+
+      /* NAVBAR SECTION */
+      /* Internal CSS for navbar */
+      #navbar {
+        display: inline;
+        overflow: hidden;
+        background-image: url("bg.gif");
+        background-repeat: repeat;
+        padding: 40px 10px;
+        transition: 0.4s;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 99;
+      }
+
+      /* Internal CSS for the texts in the nav bar */
+      #navbar a {
+        float: left;
+        color: white;
+        text-align: center;
+        padding: 30px;
+        text-decoration: none;
+        font-size: 20px;
+        line-height: 18px;
+        border-radius: 3px;
+      }
+
+      /* Internal CSS for the KIDDO.IT logo */
+      #navbar #logo {
+        width: 200px;
+        height: 135px;
+        background: url("kids.png");
+      }
+
+      /* As we hover the button, it will change the box and text colors */
+      #navbar a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      /* Internal CSS for active class */
+      #navbar a.active {
+        background-color: darkslateblue;
+        color: white;
+      }
+
+      /* navigate the contents in the navbar to the right side */
+      #navbar-right {
+        float: right;
+      }
+
+      /* media query for responsiveness */
+      @media screen and (max-width: 1000px) {
+        #navbar {
+          padding: 20px 10px;
+        }
+
+        /* if we resize our screen, the contents on the navbar will be stacked. This is one of the ways to improve responsiveness;   */
+        #navbar a {
+          float: none;
+          display: block;
+          text-align: left;
+          margin: 0 5px;
+        }
+
+        #navbar-right {
+          float: none;
+        }
+      }
+
+      /* search bar's style */
+      .boxContainer {
+        margin: auto;
+        margin-top: 7.5%;
+        position: unset;
+        width: 20px;
+        height: 20px;
+        margin-right: 28%;
+      }
+
+      .menu {
+        margin-top: 7px;
+        float: left;
+        width: 25%;
+        margin-left: 170px;
+      }
+
+      /* .main {
+          float: left;
+          width: 50%;
+          padding:7px  40px;
+          margin-left: 50px;
+      } */
+
+      .comment {
+        width: 500px;
+        height: 560px;
+        float: left;
+        width: 50%;
+        padding: 5px;
+        text-align: center;
+        margin-left: 355px;
+      }
+
+      /* cursor becomes pointer as we hover the images */
+      img {
+        cursor: pointer;
+      }
+
+      /* comment section's CSS */
+      p {
+        background-color: #404040;
+        width: 325px;
+        padding: 10px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <!-- NAVBAR CONTENT -->
+    <div id="navbar">
+      <a href="#default" id="logo"></a>
+      <div id="navbar-right">
+        <a class="active" href="#home">Home</a>
+        <a href="#about">Account</a>
+        <a href="#about">Class & Games</a>
+        <a href="#about">Promotion</a>
+        <a href="#about">Redeem</a>
+        <a href="iden.html">Contact Info</a>
+
+        <!-- SEARCH BAR FUNCTION -->
+        <div class="boxContainer">
+          <table class="elementsContainer">
+            <tr>
+              <td>
+                <input type="text" placeholder="Search" class="search">
+              </td>
+              <td>
+                <a href="#"><i class="material-icons">search</i>
+                </a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TITLE SECTION -->
+    <div style="margin-top:250px;padding:15px 7px 700px;font-size:20px">
+      <div style="background-color:#2f2a64  ;padding:30px;text-align:center; color: oldlace;">
+        <h1>W e l c o m e ✨</h1>
+      </div>
+
+    <!-- CONTENT SECTION -->
+      <div style="background-color:#747cac  ;padding:10px;text-align:center;">
+        <div style="overflow:auto">
+          <div class="menu">
+            <br>
+            <img src="1new.jpg">
+            <br> <br>
+            <img src="2new.png">
+          </div>
+
+          <div class="main">
+            <br>
+            <img src="gif.gif" width="655" height="350"> <br><br>
+            <img src="gov.jpeg" width="655" height="450">
+          </div>
+
+        </div>
+
+        <!-- COMMENT SECTION -->
+        <div class="comment">
+          <div style="background-color:#212121  ;padding:30px;text-align:center; color: whitesmoke; margin-top: 100px;">
+            <h3>Comment section</h3>
+            <center>
+
+              <button onclick="myFunction()">Post a comment</button>
+
+              <p id="query"></p>
+              <p> This application has helped my child in online learning. I am very happy because my child is becoming more active in learning</p>
+              <p> The teacher really helps my kid to understand the concept of multiplication! </p>
+              <p> My student understand most of the concepts given in this site</p>
+              <p> Outstanding app!</p>
+            </center>
+
+            <script>
+              function myFunction() {
+                let text;
+                let query = prompt("What's your query?");
+
+                text = query;
+                document.getElementById("query").innerHTML = text;
+              }
+
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <!-- If the user scrolls down 60px from the top of the document, the padding on the navigation bar will change -->
+      <!-- this is to make the page responsive as we scroll the page up and down -->
+      <script>
+        window.onscroll = function() {
+          responsive()
+        };
+
+        function responsive() {
+          if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+            document.getElementById("navbar").style.padding = "10px 5px";
+          } else {
+            document.getElementById("navbar").style.padding = "60px 10px";
+          }
+        }
+
+      </script>
+
+  </body>
+
+</html>
+
