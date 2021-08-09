@@ -1,0 +1,187 @@
+<!-- Create an HTML page that includes at least five main HTML tags -->
+<!-- Add inline, internal and external styling rules to the HTML -->
+<!-- Add responsive script elements -->
+<html>
+
+  <head>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <style type="text/css">
+      p {
+        color: green;
+      }
+
+      .column {
+        float: left;
+        width: 30%;
+        padding: 10px;
+      }
+
+      table,
+      th,
+      td {
+        border: 0.5px solid black;
+      }
+
+      /* internal css */
+      body {
+        background-color: linen;
+      }
+
+
+      /* external css */
+      P {
+        color: #6B8E23;
+        font-weight: bold;
+        font-family: "Lucida Console", "Courier New", monospace
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+    <h1 style="color:Purple">
+      <center>Welcome to Week 1</center>
+    </h1>
+
+    <!-- add music from local desktop -->
+    <center>
+    <audio controls>
+      <source src="lany.mp3" type="audio/mpeg">
+    </audio>
+    </center>
+
+    <!-- geolocation API -->
+    <div id="wrapper">
+      <center>
+      <br>
+        <button id="location-button">Get Location</button>
+      </center>
+      <div id="output"></div>
+    </div>
+    <br>
+    <!--     inline -->
+    <div class="image" <center>
+      <center>
+        <img src="https://i.postimg.cc/mksDtM8T/1200px-Deakin-University-Logo-2017-svg.png" width="300" height="300">
+    </div>
+    <br>
+    
+    <!-- Embed video from youtube -->
+    <center>
+    <iframe width="800" height="500" src="https://www.youtube.com/embed/IBSIckQWTVg">
+    </iframe>
+    </center>
+
+    <!-- canvas; source: https://www.w3schools.com/html/html5_canvas.asp -->
+    <canvas id="myCanvas" width="280" height="75" style="border:1px solid;">
+    </canvas>
+
+    <script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.font = "30px Fantasy";
+    ctx.strokeText("Welcome to Deakin",10,50);
+    </script>
+
+    <h2>Don't forget to bring your: </h2>
+    <li> Laptop/Notebook </li>
+    <li> Stationery </li>
+    <li> Student ID </li>
+    <li> Personal Notes</li>
+
+    <h2>Registration -Please fill in your identity </h2>
+    <label for="name">Full Name :</label>
+    <input type="text" id="name" name="fname"><br>
+    <label for="lname">Student ID : </label>
+    <input type="text" id="lname" name="lname">
+    </form>
+    <p><a href="https://www.deakin.edu.au/">Click here for more information</a></p>
+    <input type="checkbox" id="tnc" name="tnc" value="read">
+    <label for="tnc"> I have read the terms and conditions</label><br> <br>
+    <input onclick="submit()" type="submit" value="Submit">
+    <script>
+      function submit() {
+        alert("Submitted!");
+      }
+
+    </script>
+    <h2>Schedule </h2>
+    <table style="width:50%">
+      <tr>
+        <th>Subject</th>
+        <th>Time</th>
+        <th>Teacher</th>
+      </tr>
+      <tr>
+        <td>
+          <center>SIT232</center>
+        </td>
+        <td>
+          <center>6:00 pm</center>
+        </td>
+        <td>
+          <center>Sergey Polyakovskiy</center>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <center> SIT102 </center>
+        </td>
+        <td>
+          <center>4:00 pm</center>
+        </td>
+        <td>
+          <center>Andrew Cain</center>
+        </td>
+      </tr>
+      <tr>
+      </tr>
+    </table>
+
+    <!-- Plugin; embed PDF file from local computer -->
+    <h2>Unit Guide</h2>
+    <embed src="unit.pdf"  width="600" height="400">
+    <h1 style="color:SteelBlue">
+      Get in touch with us
+    </h1>
+
+    <div class="row">
+      <div class="column" style="background-color:#aaa;">
+        <h2>Domestic Students</h2>
+        <p>1800 693 888</p>
+        <p><a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=myfuture@deakin.edu.au">myfuture@deakin.edu.au
+          </a></p>
+        <p><a href="https://www.deakin.edu.au/help-hub/domestic-prospective-student-enquiry">Enquire online</a></p>
+      </div>
+      <div class="column" style="background-color:#bbb;">
+        <h2>International Students</h2>
+        <p>+61 3 9034 6205</p>
+        <p><a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=study@deakin.edu.au">study@deakin.edu.au
+          </a></p>
+        <p><a href="https://www.deakin.edu.au/help-hub/domestic-prospective-student-enquiry">Enquire online</a></p>
+      </div>
+
+      <!-- geolocation js; source: https://redstapler.co/detect-user-location-javascript/ -->
+      <script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+  
+      </script>
+
+  </body>
+
+</html>
