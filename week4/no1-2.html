@@ -1,1 +1,64 @@
+<html>
 
+  <head>
+    <meta charset="utf-8" />
+    <title>week 4 prac</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <!-- 1. Declarative rendering -->
+    <div id="app">
+      <center>
+        <h1>{{test}}</h1>
+        <p>{{title}}</p>
+        <a v-bind:href="link"> Click here to see week 4's content</a>
+      </center>
+
+      <!-- 2. Conditionals and Loops -->
+      <h3>{{todays}}</h3>
+
+      <!-- v-if -->
+      <div v-if="showMe">Are you done with the tasks?</div>
+
+      <!-- v-else -->
+      <div v-else="showMe">Well done!!</div>
+
+      <!-- v-for -->
+      <li v-for="todo in todos">
+        {{ todo.text }}
+      </li>
+      <br>
+
+      <!-- v-show -->
+      <button @click="showMe=!showMe">Submit</button>
+      <div v-show="!showMe">Sumbitted</div>
+
+
+    </div>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          test: 'Week 4 practical',
+          title: 'Date: ' + new Date().toLocaleString(),
+          todays: 'We are going to do: ',
+          link: 'https://d2l.deakin.edu.au/d2l/le/content/1031929/viewContent/5784060/View',
+          showMe: true,
+          todos: [{
+              text: "read materials"
+            },
+            {
+              text: "do practical tasks"
+            },
+            {
+              text: 'topic wrap up'
+            }
+          ]
+        }
+      })
+
+    </script>
+  </body>
+
+</html>
