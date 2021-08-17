@@ -1,1 +1,79 @@
+<html>
 
+  <head>
+    <meta charset="utf-8" />
+    <title>week 5 practical</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+  </head>
+
+  <body>
+    <div id="app">
+      <!--3. handling user input-->
+      <input v-model="message">
+      <p>{{ message }}</p>
+
+      <h2> {{mn}} </h2>
+      <!--1. Learn Composing with Components-->
+      <ol>
+        <todo-item v-for="todo in todos" v-bind:todo="todo.item"></todo-item>
+      </ol>
+    </div>
+
+    <div id="app1">
+      <!--3. handling user input-->
+      <ol>
+        <li v-for="item in items">{{item}}</li>
+      </ol>
+
+      <input id="input" type="text" v-model="newItem">
+      <button v-on:click="addItem">Add Foods</button>
+    </div>
+
+    <script>
+      Vue.component("todo-item", {
+        props: ['todo'],
+        template: "<li>{{todo}}</li>",
+      })
+
+      var app = new Vue({
+        el: '#app',
+        data: {
+          message: 'Type your name',
+          mn: 'Choose a menu',
+          todos: [{
+              key: 1,
+              item: "Spaghetti"
+            },
+            {
+              key: 2,
+              item: "Sushi"
+            },
+            {
+              key: 3,
+              item: "Fried noodle"
+            },
+
+
+          ]
+        }
+      })
+      var App1 = new Vue({
+        el: '#app1',
+        data: {
+          items: ['Mineral water', 'Cookie']
+        },
+
+        methods: {
+          addItem() {
+            /* we need to make this a function */
+            this.items.push(this.newItem); /*  to add new item */
+            this.newItem = ''; /* once the new item is added, the list should be cleared */
+          }
+        }
+      })
+
+    </script>
+  </body>
+
+</html>
