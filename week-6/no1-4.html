@@ -1,5 +1,4 @@
 <html>
-
   <head>
     <meta charset="utf-8" />
     <title>week 6 oractical</title>
@@ -9,6 +8,7 @@
   <body>
 
     <!-- 1. Using V-model for handling user inputs -->
+    <!-- id is always in lowercase -->
     <form id="userform">
       <h3>Form User</h3>
       <label for="name">Name: </label><br>
@@ -19,7 +19,7 @@
 
       <label for="password">Password: </label><br>
 
-      <!-- 4. Trim -->
+      <!-- 4. Trim modifiers -->
       <input id="password" type="password" v-model.trim="password" placeholder="must have minimum 6 characters"><br><br>
       <p>password: {{password}}</p>
 
@@ -44,7 +44,8 @@
       <input type="checkbox" id="pen" value="Pen" v-model="checkedNames">
       <label for="pen"> Pen </label>
       <br>
-
+      
+      <!-- two-way bindings -->
       <span> Checked names: {{ checkedNames }} </span>
     </div>
     <br>
@@ -52,10 +53,12 @@
     <!-- 2. Checkbox  in your project -->
     <div id="select">
       <select v-model="selected">
+        <!-- dynamic -->
         <option v-for="option in options" v-bind:value="option.value">
           {{ option.text }}
         </option>
       </select>
+      <!-- two-way bindings -->
       <span>Selected: {{ selected }}</span>
     </div>
 
@@ -85,7 +88,8 @@
 
             if (str) {
               alert(str)
-              
+
+            // if the information filled by the user is not complete
             } else {
               alert("Please input required info")
             }
@@ -108,14 +112,17 @@
           selected: '1',
           options: [{
               text: 'Apple',
+              // this value will be shown as we choose apple
               value: '1'
             },
             {
               text: 'Pineapple',
+              // this value will be shown as we choose pinapple              
               value: '2'
             },
             {
               text: 'Pen',
+               // this value will be shown as we choose pen         
               value: '3'
             }
           ]
@@ -124,5 +131,4 @@
 
     </script>
   </body>
-
 </html>
