@@ -1,1 +1,127 @@
+<html>
 
+  <head>
+    <meta charset="utf-8" />
+    <title>week 6 oractical</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  </head>
+
+  <body>
+
+    <!-- 1. Using V-model for handling user inputs -->
+    <form id="userform">
+      <h3>Form User</h3>
+      <label for="name">Name: </label><br>
+
+      <!-- 4. Lazy modifiers -->
+      <input id="name" type="text" v-model.lazy="username" placeholder="Myname"><br><br>
+      <p>Username: {{username}}</p>
+
+      <label for="password">Password: </label><br>
+
+      <!-- 4. Trim -->
+      <input id="password" type="password" v-model.trim="password" placeholder="must have minimum 6 characters"><br><br>
+      <p>password: {{password}}</p>
+
+      <label for="email">Email: </label><br>
+      <input id="email" type="text" placeholder="example@gmail.com"><br><br>
+
+
+      <button v-on:click="checkInput">Submit</button>
+    </form>
+    <br>
+
+    <!-- 3. Dynamic options rendering v-for -->
+    <div id="checked">
+      <input type="checkbox" id="apple" value="Apple" v-model="checkedNames">
+      <label for="apple"> Apple </label>
+      <br>
+
+      <input type="checkbox" id="pineapple" value="Pineaplle" v-model="checkedNames">
+      <label for="pineapple"> Pineapple </label>
+      <br>
+
+      <input type="checkbox" id="pen" value="Pen" v-model="checkedNames">
+      <label for="pen"> Pen </label>
+      <br>
+
+      <span> Checked names: {{ checkedNames }} </span>
+    </div>
+    <br>
+
+    <!-- 2. Checkbox  in your project -->
+    <div id="select">
+      <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+          {{ option.text }}
+        </option>
+      </select>
+      <span>Selected: {{ selected }}</span>
+    </div>
+
+    <script>
+      // 1. Using V-model for handling user inputs
+      var form = new Vue({
+        el: "#userform",
+        data: {
+          username: '',
+          password: '',
+          email: ''
+        },
+        methods: {
+          checkInput: function() {
+            var str = '';
+            if (this.username) {
+              str = str + "username: " + this.username;
+            }
+
+            if (this.password) {
+              str = str + "password: " + this.password;
+            }
+
+            if (this.email) {
+              str = str + "email: " + this.email;
+            }
+
+            if (str) {
+              alert(str)
+            } else {
+              alert("Please input required info")
+            }
+          }
+        }
+      })
+
+      // 3. Dynamic options rendering v-for
+      var check = new Vue({
+        el: '#checked',
+        data: {
+          checkedNames: []
+        }
+      })
+
+      // 2. Checkbox  in your project
+      var select = new Vue({
+        el: '#select',
+        data: {
+          selected: '1',
+          options: [{
+              text: 'Apple',
+              value: '1'
+            },
+            {
+              text: 'Pineapple',
+              value: '2'
+            },
+            {
+              text: 'Pen',
+              value: '3'
+            }
+          ]
+        }
+      })
+
+    </script>
+  </body>
+
+</html>
