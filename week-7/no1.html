@@ -1,85 +1,86 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <!-- title of this page; will be displayed on the tab title -->
     <!-- importing vue.js script -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>.
   </head>
 
-  <body>        
+  <body>
     <!-- Local Registration -->
     <div id="local"> </div>
-    <br> 
+    <br>
     <!-- Global Registration -->
     <div id="global"> </div>
 
     <script>
-        // Local Registration
-        // component definition
-        const LocalRegist = {
-            template:'<div><h3>${message}</h3> <button @click="test"> Click me! </button></div>',
-            // API: Delimiter changed to use ES6 template string; resource: vue.js website
-            // Change the normal text interpolation delimiter.
-            delimiters: ['${','}'],
-            data: function() {
-                return {
-                    // data here
-                    message:  'Local Registration'
-                }
-            },
-            methods: {
-                // as we clicked the button, the page will pop this alert up
-                test: function(){
-                    alert('Local Registration');
-                }
-            }
-        };
-        
-        // let -> variable that is declared has limited scope        
-        let local = new Vue({
-            el:'#local',
-            // usage in an instance
-            components: {
-              'local-regis': LocalRegist
-            },
+      // Local Registration
+      // component definition
+      const LocalRegist = {
+        template: '<div><h3>${message}</h3> <button @click="test"> Click me! </button></div>',
+        // API: Delimiter changed to use ES6 template string; resource: vue.js website
+        // Change the normal text interpolation delimiter.
+        delimiters: ['${', '}'],
+        data: function() {
+          return {
+            // data here
+            message: 'Local Registration'
+          }
+        },
+        methods: {
+          // as we clicked the button, the page will pop this alert up
+          test: function() {
+            alert('Local Registration');
+          }
+        }
+      };
 
-            // function that returns an object
-            data: {
-                num: 1
-            },
+      // let -> variable that is declared has limited scope        
+      let local = new Vue({
+        el: '#local',
+        // usage in an instance
+        components: {
+          'local-regis': LocalRegist
+        },
 
-            // using template
-            template: `<local-regis/>`
-        });
+        // function that returns an object
+        data: {
+          num: 1
+        },
 
-        // Global Registration
         // using template
-        Vue.component('global-regis', {
-            template: '<div><h3>${message}</h3> <button @click="test"> Click me! </button></div>',
-            delimiters: ['${','}'],
+        template: `<local-regis/>`
+      });
 
-            // function that returns an object
-            data: function() {
-                return {
-                    // data here                
-                    message: 'Global Registration'
-                }
-            },
-            methods: {
-                // as we clicked the button, the page will pop this alert up
-                test: function() {
-                alert('Global Registration');
-                }
-            }
-        })
+      // Global Registration
+      // using template
+      Vue.component('global-regis', {
+        template: '<div><h3>${message}</h3> <button @click="test"> Click me! </button></div>',
+        delimiters: ['${', '}'],
 
-        // let -> variable that is declared has limited scope
-        let global = new Vue({
-            el:'#global',
-            template: `<global-regis/>`
-        });
+        // function that returns an object
+        data: function() {
+          return {
+            // data here                
+            message: 'Global Registration'
+          }
+        },
+        methods: {
+          // as we clicked the button, the page will pop this alert up
+          test: function() {
+            alert('Global Registration');
+          }
+        }
+      })
 
+      // let -> variable that is declared has limited scope
+      let global = new Vue({
+        el: '#global',
+        template: `<global-regis/>`
+      });
 
     </script>
   </body>
+
 </html>
