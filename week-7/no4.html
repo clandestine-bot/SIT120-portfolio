@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <!-- title of this page; will be displayed on the tab title -->
+    <!-- importing vue.js script -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>.
+  </head>
+
+  <body>
+
+    <!-- Declarative rendering to the DOM -->
+    <div id="app">
+        <!-- bind the component instead of static comp -->
+        <h1 class="prac">{{ prac }}</h1>
+        <hr>
+
+        <!-- This will render testing from the parent -->
+        <!-- allow the parent component to control the content inside the child's -->
+        <!-- custom event (test-component) using kebab case -->
+        
+        <test-component>
+
+        <!-- slot element will render any kind of custom component as we add the slot component -->
+        <!-- even if we put this element at the bottom, it will stay on top -->
+        <p slot="first">This is the first slot</p>
+
+        <!-- catch all the information -->
+        <!-- will rendered at the bottom location -->
+        <p slot="second">This is the second slot</p>
+        <h3>Testing parent</h3>
+
+        </test-component>
+        <!-- This will render testing from the child -->
+        <test-component></test-component>
+    </div>
+
+    <script type="text/x-template" id="test-component">
+      <div>
+        <!-- Element injected with `slot="first"`
+          the attributes will end here. -->
+
+             <slot name="first">
+             </slot>
+             <!-- A slot tag without a name is a catch-all,
+             it will contain any content that doesn't have
+             a `slot=""` attribute. -->
+             <slot>
+                 <!-- override -->
+                <h3>Testing child</h3>
+            </slot>
+             <!-- Element injected with `slot="second"`
+             the attributes will end here. -->
+             <!-- this element can only be used by ordered elements with slot attribute -->
+             <slot name="second">
+             </slot>
+           </div>
+         </script>
+
+    <script>
+     // globally registered comnponent
+      Vue.component('test-component', {
+        // we don't directly write the template here
+        template: '#test-component',
+        
+        // function that returns an object    
+        data() {
+          return {
+            childTitle: 'title from child component',
+            childSubtitle: 'subtitle from child component'
+          }
+        },
+        // string type
+        props: {
+            type: String,
+            required: true
+          }
+        })
+
+        //   creating Vue Instance by creating new Vue
+        new Vue({
+
+            // pass the object
+            el: '#app',
+            data() {
+            return {
+                prac: 'Task 4: Using Slots',
+            }
+        }
+    })
+
+    </script>
+  </body>
+
+</html>
