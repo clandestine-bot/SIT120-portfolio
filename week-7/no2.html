@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <!-- title of this page; will be displayed on the tab title -->
+    <title>Task 2 week 7</title>
+    <!-- importing vue.js script -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <!-- Component Properties -->
+    <h3> 2. Component Properties </h3>
+    <!-- we created a divison   -->
+    <div id="app1">
+      <!-- in this division, we have component (child) -->
+      <!--   we bind the text with the message that will be defined in the Vue (data part) -->
+      <child v-bind:text="message"></child>
+    </div>
+
+    <script>
+      Vue.component('child', {
+        /*   object, not array */
+        props: {
+          /*     this text object has 2 properties (type and required) */
+          text: {
+            type: String,
+            /*         the text should be required; the text must be provided as property */
+            required: true
+          }
+        },
+        /*     the props must display whatever passed in the child */
+        template: `<div>{{ text }}</div>`
+      });
+
+      //   creating Vue Instance by creating new Vue
+      new Vue({
+        // pass the object
+        el: '#app1',
+        data() {
+          return {
+            /*to define the message*/
+            message: 'Props example'
+          }
+        }
+      });
+
+    </script>
+  </body>
+
+</html>
