@@ -1,0 +1,84 @@
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <!-- title of this page; will be displayed on the tab title -->
+    <title>Week 7 task 3</title>
+    <!-- he're, we're using the latest version that is for prototyping and learning purposes; source: Vue.js -->
+    <!-- Vue.js version 3 -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+
+  <body>
+    <!-- 3.Custom Events -->
+    <!-- we created a divison   -->
+    <div id="customevents">
+      <!-- we're using camel case -->
+      <!-- bind the component -->
+      <p> Student ID: {{ studentNo }} </p>
+      <p> Course Name: {{ courseName }} </p>
+      <p> Course Code: {{ courseCode }} </p>
+      <!-- all these information will be passed to the props based on the template -->
+      <!-- we're using kebab-case here -->
+      <!-- the camel case will be transformed to kebab case -->
+      <my-info v-model:student-no="studentNo"  v-model:course-name="courseName" v-model:course-code="courseCode"></my-info>
+
+
+    <script>
+      // create the component
+      // using pascal case
+      const MyInfo = {
+        props: {
+          // accepts the studentNo, courseName, and courseCode as props
+          // 2-way message sending
+          // data type 
+          studentNo: Number,
+          courseName: String,
+          courseCode: String
+        },
+
+        // we're using $emit to pass the data from the child component back to the parent
+        // the name of an emitted event must exactly match the name used to listen to that event; source: Vue.js
+        // the template is used when to show the information passed by the user ; formatting and inserting to be displayed to the user efficiently
+        // consists of 3 input fields
+        template: `
+            <input 
+            type="text"
+            :value="studentNo"
+            @input="$emit('update:studentNo', $event.target.value)">
+
+            <input
+            type="text"
+            :value="courseName"
+            @input="$emit('update:courseName', $event.target.value)">
+
+            <input
+            type="text"
+            :value="courseCode"
+            @input="$emit('update:courseCode', $event.target.value)">
+        `
+      };
+
+      // create the component
+      // using pascal case
+      const CustomEvents = {
+        components: {
+          MyInfo
+        },
+        data() {
+          return {
+            // default value; even if we refresh the screen
+            studentNo: '220623128',
+            courseName: 'Responsive Web App',
+            courseCode: 'sit120'
+          };
+        },
+      };
+
+      Vue.createApp(CustomEvents).mount('#customevents')
+
+    </script>
+
+  </body>
+
+</html>
