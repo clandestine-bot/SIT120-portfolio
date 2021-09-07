@@ -2,16 +2,18 @@
 <!-- Add inline, internal and external styling rules to the HTML -->
 <!-- Add responsive script elements -->
 <html>
-
   <head>
     <title>Portfolio</title>
-    
-     /* external CSS */
+
+     <!—- External CSS, importing the stylesheet from separated file  -->
     <link rel="stylesheet" href="css/styles.css?v=1.0">
     <style type="text/css">
+     <!—- internal CSS for the paragraph -->
+
       p {
         color: green;
       }
+     <!—- Internal CSS for the div named column  -->
 
       .column {
         float: left;
@@ -19,17 +21,21 @@
         padding: 10px;
       }
 
+     <!—- Internal CSS for the tables  -->
       table,
       th,
       td {
         border: 0.5px solid black;
       }
 
-      /* internal CSS */
+      /* Internal CSS */
       body {
         background-color: linen;
       }
 
+
+
+     <!—- this Internal CSS will be implemented instead of the 1st one  -->
       P {
         color: #6B8E23;
         font-weight: bold;
@@ -37,13 +43,14 @@
       }
 
     </style>
-
   </head>
 
   <body>
+    <!-- Inline CSS for the heading in this section -->
     <h1 style="color:Purple">
       <center>Welcome to Week 1</center>
     </h1>
+    <!-- division -->
     <div class="image" <center>
       <center>
         <img src="https://i.postimg.cc/mksDtM8T/1200px-Deakin-University-Logo-2017-svg.png" width="120" height="120">
@@ -57,14 +64,14 @@
     <li> Personal Notes</li>
 
     <h2>Registration -Please fill in your identity </h2>
-    <!--     input element -->
+    <!-- Input element -->
     <label for="name">Full Name :</label>
     <input type="text" id="name" name="fname"><br>
     <label for="lname">Student ID : </label>
     <input type="text" id="lname" name="lname">
     </form>
   
-    <!--   hyperlink; as we click the "Click here for more information", we will be redirected to Deakin's page -->
+    <!-- hyperlink; as we click the "Click here for more information", we will be redirected to Deakin's page -->
     <p><a href="https://www.deakin.edu.au/">Click here for more information</a></p>
   
     <!--   checkbox -->
@@ -86,6 +93,7 @@
         <th>Time</th>
         <th>Teacher</th>
       </tr>
+      <!—Contents of the table -->
       <tr>
         <td>
           <center>SIT232</center>
@@ -111,10 +119,10 @@
       <tr>
       </tr>
     </table>
-    <!-- inline CSS -->
+    <!-- Inline CSS -->
     <h1 style="color:SteelBlue"> Get in touch with us </h1>
 
-    <!--   divison for the contents -->
+    <!-- Division for the contents -->
     <div class="row">
       <!-- inline CSS -->
       <div class="column" style="background-color:#aaa;">
@@ -132,7 +140,5 @@
           </a></p>
         <p><a href="https://www.deakin.edu.au/help-hub/domestic-prospective-student-enquiry">Enquire online</a></p>
       </div>
-
   </body>
-
 </html>
