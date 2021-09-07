@@ -2,47 +2,45 @@
 <!-- Add inline, internal and external styling rules to the HTML -->
 <!-- Add responsive script elements -->
 <html>
+
   <head>
     <title>Portfolio</title>
 
-     <!—- External CSS, importing the stylesheet from separated file  -->
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-    <style type="text/css">
-     <!—- internal CSS for the paragraph -->
+    <!-- External CSS, importing the stylesheet from separated file -->
+      <link rel="stylesheet" href="css/styles.css?v=1.0">
+      <style type="text/css">
+        /* internal CSS for the paragraph */
+        p {
+          color: green;
+        }
 
-      p {
-        color: green;
-      }
-     <!—- Internal CSS for the div named column  -->
+        /* Internal CSS for the div named column */
+        .column {
+          float: left;
+          width: 30%;
+          padding: 10px;
+        }
 
-      .column {
-        float: left;
-        width: 30%;
-        padding: 10px;
-      }
+        /* Internal CSS for the tables */
+        table,
+        th,
+        td {
+          border: 0.5px solid black;
+        }
 
-     <!—- Internal CSS for the tables  -->
-      table,
-      th,
-      td {
-        border: 0.5px solid black;
-      }
+        /* Internal CSS */
+        body {
+          background-color: linen;
+        }
 
-      /* Internal CSS */
-      body {
-        background-color: linen;
-      }
+        /* this Internal CSS will be implemented instead of the 1st one (for the same element) */
+        P {
+          color: #6B8E23;
+          font-weight: bold;
+          font-family: "Lucida Console", "Courier New", monospace
+        }
 
-
-
-     <!—- this Internal CSS will be implemented instead of the 1st one  -->
-      P {
-        color: #6B8E23;
-        font-weight: bold;
-        font-family: "Lucida Console", "Courier New", monospace
-      }
-
-    </style>
+      </style>
   </head>
 
   <body>
@@ -70,10 +68,10 @@
     <label for="lname">Student ID : </label>
     <input type="text" id="lname" name="lname">
     </form>
-  
+
     <!-- hyperlink; as we click the "Click here for more information", we will be redirected to Deakin's page -->
     <p><a href="https://www.deakin.edu.au/">Click here for more information</a></p>
-  
+
     <!--   checkbox -->
     <input type="checkbox" id="tnc" name="tnc" value="read">
     <label for="tnc"> I have read the terms and conditions</label><br> <br>
@@ -94,30 +92,30 @@
         <th>Teacher</th>
       </tr>
       <!—Contents of the table -->
-      <tr>
-        <td>
-          <center>SIT232</center>
-        </td>
-        <td>
-          <center>6:00 pm</center>
-        </td>
-        <td>
-          <center>Sergey Polyakovskiy</center>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <center> SIT102 </center>
-        </td>
-        <td>
-          <center>4:00 pm</center>
-        </td>
-        <td>
-          <center>Andrew Cain</center>
-        </td>
-      </tr>
-      <tr>
-      </tr>
+        <tr>
+          <td>
+            <center>SIT232</center>
+          </td>
+          <td>
+            <center>6:00 pm</center>
+          </td>
+          <td>
+            <center>Sergey Polyakovskiy</center>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <center> SIT102 </center>
+          </td>
+          <td>
+            <center>4:00 pm</center>
+          </td>
+          <td>
+            <center>Andrew Cain</center>
+          </td>
+        </tr>
+        <tr>
+        </tr>
     </table>
     <!-- Inline CSS -->
     <h1 style="color:SteelBlue"> Get in touch with us </h1>
@@ -133,6 +131,7 @@
         <p><a href="https://www.deakin.edu.au/help-hub/domestic-prospective-student-enquiry">Enquire online</a></p>
       </div>
       <!-- inline CSS -->
+      <!-- the content of the div -->
       <div class="column" style="background-color:#bbb;">
         <h2>International Students</h2>
         <p>+61 3 9034 6205</p>
@@ -141,4 +140,5 @@
         <p><a href="https://www.deakin.edu.au/help-hub/domestic-prospective-student-enquiry">Enquire online</a></p>
       </div>
   </body>
+
 </html>
