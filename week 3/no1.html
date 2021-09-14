@@ -1,17 +1,40 @@
 <html>
-
   <body>
+
+    <p id="monica"></p>
+
+    <p id="js"></p>
+
+    <!-- clickable button to click on  -->
+    <button type="button" onclick="document.getElementById('demo').style.display='block'">click me!</button>
+
+    <!-- will be shown as the user clicks the click me button -->
+    <p id="demo" style="display:none">Monica's first JS program</p>
+
+    <br>
+    <hr>
     <p id="task1"></p>
 
     <script>
+
+      // declaring variable called text
       let text = "MONICA";
 
-      /* total length of MONICA string: */
+      // returns total length of MONICA string:
       document.getElementById("task1").innerHTML = text.length;
 
-      /* print MONICA */
+      // print MONICA
       document.write(text);
 
+      // javaScript in body
+      document.getElementById("js").innerHTML = "Using JavaScript";
+
+      // To join strings
+      let monica = "Monica";
+      let valentina = "Valentina";
+      let mv = monica.concat(" ",valentina);
+      document.getElementById("monica").innerHTML = mv;
+      
     </script>
   </body>
 
