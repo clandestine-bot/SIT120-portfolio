@@ -1,80 +1,76 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title> </title>
+    <!-- internal CSS -->
     <style>
       body {
-        background: #20262E;
-        padding: 20px;
-        font-family: Helvetica;
+        background: lightcoral;
+        padding: 50px;
+        font-family: 'Courier New', Courier, monospace;
       }
 
       #app {
-        background: #fff;
-        border-radius: 4px;
-        padding: 20px;
-        transition: all 0.2s;
+        background:rgb(243, 232, 232);
+        border-radius: 10px;
+        padding: 50px;
       }
 
-      li {
-        margin: 8px 0;
+      h3 {
+        margin-left: 50px;
       }
-
-      h2 {
-        font-weight: bold;
-        margin-bottom: 15px;
-      }
-
-      del {
-        color: rgba(0, 0, 0, 0.3);
-      }
-
     </style>
+
+    <!-- Vue script source -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   </head>
 
   <body>
     <div id="app">
-      <h2>Todos:</h2>
-      <ol>
-        <li v-for="todo in todos">
-          <label>
-            <input type="checkbox" v-on:change="toggle(todo)" v-bind:checked="todo.done">
+      <center>
+        <h1><b>To-do list</b></h1>
+      </center>
+      <hr>
+      <div v-for="todo in todos">
+        <label>
 
-            <del v-if="todo.done">
-              {{ todo.text }}
-            </del>
-            <span v-else>
-              {{ todo.text }}
-            </span>
-            <script>
-              new Vue({
-                el: "#app",
-                data: {
-                  todos: [{
-                      text: "Assignment 1: Project",
-                      done: false
-                    },
-                    {
-                      text: "Assignment 2: Project and PPT",
-                      done: false
-                    },
-                    {
-                      text: "Assignment 3: Portfolio",
-                      done: true
-                    },
-                  ]
-                },
-                methods: {
-                  toggle: function(todo) {
-                    todo.done = !todo.done
-                  }
+        <!-- checkbox and strikethrough for every checked item  -->
+          <input type="checkbox" v-on:change="toggle(todo)" v-bind:checked="todo.done">
+          <del v-if="todo.done">
+            {{ todo.text }}
+          </del>
+          <span v-else>
+            {{ todo.text }}
+          </span>
+          <script>
+            new Vue({
+              el: "#app",
+              data: {
+                todos: [{
+                    // default checked
+                    text: "Week 1 practical",
+                    done: true
+                  },
+                  {
+                    // default unchecked
+                    text: "Week 2 practical",
+                    done: false
+                  },
+                  {
+                    // default unchecked                      
+                    text: "Week 3 practical",
+                    done: false
+                  },
+                ]
+              },
+              methods: {
+                toggle: function(todo) {
+                  todo.done = !todo.done
                 }
-              })
-
-            </script>
-          </label>
-        </li>
-      </ol>
-    </div>
+              }
+            })
+          </script>
+        </label>
+      </div>
   </body>
-
 </html>
